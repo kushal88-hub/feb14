@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #ff3366;
+        }
+        .btn {
+            font-size: 30px;
+            padding: 20px 40px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        #yesBtn {
+            background-color: green;
+            color: white;
+            font-size: 30px;
+        }
+        #noBtn {
+            background-color: red;
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <button id="yesBtn" class="btn" onclick="yesClick()">YES</button>
+        <button id="noBtn" class="btn" onclick="noClick()">NO</button>
+    </div>
+
+    <script>
+        let noTexts = [
+            "please", "pretty please", "Suchi, please", "don't break my heart", 
+            "I’ll buy you food!","I will get you tons of dairy milk", "You're the best, say yes!", "Come on, OMGGGG!", 
+            "No Pressure!", "You know you want to!", "Last chance... okay one more!", 
+            "Fine, I’ll stop asking... JK, PLEASE!!!", "Alright, this is REALLY the last time!"
+        ];
+        let noIndex = 0;
+        let yesBtn = document.getElementById("yesBtn");
+        let noBtn = document.getElementById("noBtn");
+        
+        function yesClick() {
+            document.body.innerHTML = "<h1 style='color: #ff3366;'>YAY, you made my day! ❤️ Let's meet when we get to college? </h1>";
+        }
+
+        function noClick() {
+            if (noIndex < noTexts.length) {
+                noBtn.innerText = noTexts[noIndex];
+                noIndex++;
+            }
+            yesBtn.style.fontSize = (parseFloat(window.getComputedStyle(yesBtn).fontSize) + 5) + "px";
+            noBtn.style.fontSize = (parseFloat(window.getComputedStyle(noBtn).fontSize) - 2) + "px";
+            if (parseFloat(window.getComputedStyle(noBtn).fontSize) < 10) {
+                noBtn.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
